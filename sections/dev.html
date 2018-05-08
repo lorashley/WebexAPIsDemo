@@ -1,0 +1,29 @@
+<template class="section-template">
+<section id="dev" class="wrapper style1 fullscreen intro">
+ <div class="inner">
+ <h1>dev</h1>
+ <webview id="foo" src="https://developer.webex.com/" style="display:inline-flex; min-width:1050px;"></webview>
+ <ul class="actions">
+ <li><a href="#one" class="button scrolly">Learn more</a></li>
+ </ul>
+ </div>
+</section>
+</template>
+
+<script>
+    onload = () => {
+      const webview = document.querySelector('webview')
+      const indicator = document.querySelector('.indicator')
+  
+      const loadstart = () => {
+        indicator.innerText = 'loading...'
+      }
+  
+      const loadstop = () => {
+        indicator.innerText = ''
+      }
+  
+      webview.addEventListener('did-start-loading', loadstart)
+      webview.addEventListener('did-stop-loading', loadstop)
+    }
+  </script>
